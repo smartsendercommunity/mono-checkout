@@ -104,13 +104,13 @@ if ($input["delivery"] != NULL && is_array($input["delivery"])) {
   }
 }
 if ($input["payments"] != NULL && is_array($input["payments"])) {
-  if (in_array("pickup", $input["payments"])) {
+  if (in_array("card", $input["payments"])) {
     $sendData["payment_method_list"][] = "card";
   }
-  if (in_array("np_brnm", $input["payments"])) {
+  if (in_array("payment_on_delivery", $input["payments"])) {
     $sendData["payment_method_list"][] = "payment_on_delivery";
   }
-  if (in_array("courier", $input["payments"])) {
+  if (in_array("part_purchase", $input["payments"])) {
     if ($input["partCount"] != NULL && $input["partCount"] >= 3) {
       $sendData["payment_method_list"][] = "part_purchase";
       $sendData["payments_number"] = $input["partCount"];
